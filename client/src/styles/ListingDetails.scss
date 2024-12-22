@@ -81,57 +81,49 @@
 
   .booking {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
 
-    @include lg {
-      flex-direction: column;
-      gap: 50px;
+    h2 {
+      font-size: 20px;
     }
 
-    .amenities {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: 100px;
-      margin: 30px 0;
-      max-width: 700px;
-
-      @include sm {
-        grid-column-gap: 20px;
-      }
-
-      .facility {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
-
-        &_icon {
-          font-size: 30px;
-        }
-
-        p {
-          margin: 0;
-        }
-      }
+    .calendar-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
-    .date-range-calendar {
-      margin: 30px 0;
-
+    .pricing {
       h2 {
-        margin-bottom: 10px;
+        font-size: 18px;
+        margin: 10px 0;
       }
 
-      .button {
-        @include buttonStyle;
-        width: 100%;
-        margin-top: 30px;
+      p {
+        margin: 0;
+      }
+    }
 
-        @include lg {
-          max-width: 300px;
-        }
+    .booking-button {
+      background-color: red;
+      color: white;
+      font-size: 16px;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      /* Make button same width as calendar */
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darkred;
+      }
+
+      @include lg {
+        max-width: 300px;
       }
     }
   }

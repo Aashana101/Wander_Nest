@@ -15,20 +15,19 @@ const BookingSchema = new mongoose.Schema(
       ref: "Listing",
     },
     startDate: {
-      type: String,
+      type: Date, // Changed to Date type for better consistency
       required: true,
     },
     endDate: {
-      type: String,
+      type: Date, // Changed to Date type for better consistency
       required: true,
     },
     totalPrice: {
-      type: Number,
+      type: Number, // Explicitly ensures this is a number
       required: true,
     },
   },
   { timestamps: true }
 );
 
-const Booking = mongoose.model("Booking", BookingSchema)
-module.exports = Booking
+module.exports = mongoose.model("Booking", BookingSchema);

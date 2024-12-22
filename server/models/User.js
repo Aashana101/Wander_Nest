@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -23,10 +23,12 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    tripList: {
-      type: Array,
-      default: [],
-    },
+    trips: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Booking", // Reference to Booking model
+      },
+    ],
     wishList: {
       type: Array,
       default: [],
@@ -38,10 +40,9 @@ const UserSchema = new mongoose.Schema(
     reservationList: {
       type: Array,
       default: [],
-    }
+    },
   },
   { timestamps: true }
-)
+);
 
-const User = mongoose.model("User", UserSchema)
-module.exports = User
+module.exports = mongoose.model("User", UserSchema);
